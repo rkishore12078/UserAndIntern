@@ -1,0 +1,36 @@
+<div>
+    <table>
+        <tr>
+            <td><label class="form-control">UserID</label></td>
+            <td><input class="form-control" 
+                required [min]="1" 
+                type="number" 
+                [(ngModel)]= "user.userId"
+                #iname="ngModel"></td>
+            <span *ngIf="iname.touched && iname.invalid" class="alert alert-danger">
+               <span *ngIf=""> Id cannot be empty</span>
+               <span  *ngIf="">Should not be less than 1</span> 
+            </span>
+        </tr>
+        <tr>
+            <td><label class="form-control">Password</label></td>
+            <td><input class="form-control" type="text"
+                required
+                minlength="20"
+                 [(ngModel)]="user.password"
+                 #iname="ngModel">
+            </td>
+                 <span *ngIf="iname.touched && iname.invalid" class="alert alert-danger">
+                    <span *ngIf=""> Password cannot be empty</span>
+                    <span  *ngIf="">Password should be min 20 chars long</span> 
+                 </span>
+        </tr>
+        <tr>
+            <td><button class="btn btn-success" (click)="addUser()">LogIN</button></td>
+            <td><button class="btn btn-danger">Cancel</button></td>
+        </tr>
+    </table>
+</div>
+<div>
+    {{user| json}}
+</div>
