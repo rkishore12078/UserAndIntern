@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserInternService } from './Services/user-intern.service';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +6,11 @@ import { UserInternService } from './Services/user-intern.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  toggleShownav:boolean;
+
   title = 'UserAndInternManagement';
-  constructor(private router:Router,private userinterService:UserInternService){
-    this.toggleShownav=this.userinterService.shownav;
+  constructor()
+  {
+    
   }
 
-  Register()
-  {
-    this.router.navigate(['register']);
-  }
-
-  login()
-  {
-    this.router.navigate(['logIN']);
-  }
 }

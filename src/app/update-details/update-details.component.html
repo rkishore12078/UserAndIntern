@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid" id="nav-Bar">
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="items"  (click)="raiseTicket()">RaiseTicket</a>
+          </li>
+          <li class="nav-item">
+            <a class="items">Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="items" (click)="logout()">LogOut</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<div style="margin-top: 50px;font-family: 'Courier New', Courier, monospace;">
+    <p>Your details</p>
+</div>
+
+<div style="margin-top: 50px;">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td *ngIf="toggleInputs==true">{{intern.name}}</td>
+            <td *ngIf="toggleInputs==false">
+                <input type="text" [(ngModel)]="intern.name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td *ngIf="toggleInputs==true">{{intern.age}}</td>
+            <td *ngIf="toggleInputs==false">
+                <input type="text" [(ngModel)]="intern.age"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td *ngIf="toggleInputs==true">{{intern.email}}</td>
+            <td *ngIf="toggleInputs==false">
+                <input type="text" [(ngModel)]="intern.email"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td *ngIf="toggleInputs==true">{{intern.phone}}</td>
+            <td *ngIf="toggleInputs==false">
+                <input type="text" [(ngModel)]="intern.phone"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td *ngIf="toggleInputs==true">{{intern.gender}}</td>
+            <td *ngIf="toggleInputs==false">
+                <input type="text" [(ngModel)]="intern.gender"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td *ngIf="toggleInputs==true">{{intern.dateOfBirth}}</td>
+            <td *ngIf="toggleInputs==false">
+                <input type="text" [(ngModel)]="intern.dateOfBirth"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button [disabled]="toggleButton==false" (click)="update()" class="btn btn-primary">Update</button>
+            </td>
+            <td>
+                <button [disabled]="toggleButton==true" (click)="updateDetails()" class="btn btn-primary">Update Details</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="updatePassword()" [disabled]="!togglePasswordButton" class="btn btn-primary">Update Password</button>
+            </td>
+            <td *ngIf="!togglePassword">
+                <input type="text" [(ngModel)]="paswordDTO.newPassword"(click)="onBlur()"/>
+            </td>
+            <td *ngIf="togglePassword">Password Updated</td>
+        </tr>
+    </table>
+</div>

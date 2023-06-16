@@ -9,11 +9,16 @@ import { Observable } from 'rxjs';
 export class TicketRaiseService {
 
     constructor(private http:HttpClient){
-
+      localStorage.getItem("role");
     }
 
     ticketRaise(ticket:Ticketmodel):Observable<any>
     {
         return this.http.post("http://localhost:5137/api/Ticket/RaiseTicket",ticket);
+    }
+
+    GetAllTickets(ticket:Ticketmodel)
+    {
+      return this.http.post("http://localhost:5137/api/Ticket/GetSpecificInternTickets",ticket);
     }
 }

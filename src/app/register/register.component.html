@@ -1,29 +1,47 @@
-<div>
+<div style="margin-top: 100px;">
     <table>
         <tr>
-            <td><label class="form-control">Full Name</label></td>
+            <td><label class="form-control">Name</label></td>
             <td><input class="form-control" 
-                required minlength="5" 
+                required 
                 type="text" 
                 [(ngModel)]="intern.name" 
-                #iname="ngModel"></td>
-            <span *ngIf="iname.touched && iname.invalid" class="alert alert-danger">
-               <span *ngIf="iname.errors?.['required']"> Name cannot be empty</span>
-               <span  *ngIf="iname.errors?.['minlength']">Name should be min 5 chars long</span> 
-            </span>
+                #iname="ngModel"
+                placeholder="Full Name">
+            </td>
+            <td>
+                <span *ngIf="iname.touched && iname.invalid" class="alert alert-danger">
+                    <span *ngIf="iname.errors?.['required']">shouldn't be Empty</span>
+                </span>
+            </td>
         </tr>
         <tr>
             <td><label class="form-control">Phone</label></td>
-            <td><input class="form-control" type="text" [(ngModel)]="intern.phone"></td>
+            <td><input class="form-control" 
+                type="tel" 
+                [(ngModel)]="intern.phone"
+                minlength="10" maxlength="10"
+                #pname="ngModel"
+                placeholder="Phone">
+            </td>
+            <td>
+                <span *ngIf="pname.touched && pname.invalid" class="alert alert-danger">
+                    <span *ngIf="pname.errors"> Should be 10 Numbers only</span>
+                </span>
+            </td>
+            
         </tr>
         <tr>
             <td><label class="form-control">Email</label></td>
-            <td><input class="form-control" type="text" [(ngModel)]="intern.email"></td>
+            <td><input class="form-control" type="text" [(ngModel)]="intern.email" placeholder="Email"></td>
         </tr>
         <tr>
             <td><label class="form-control">Gender</label></td>
             <td>
                 <select class="form-control" (change)="addGender(gender.value)" #gender>
+                    <option value="none" selected disabled hidden>
+                        Select an Option
+                    </option>
                     <option value="female">Female</option>
                     <option value="male">Male</option>
                 </select>
@@ -31,18 +49,22 @@
         </tr>
         <tr>
             <td><label class="form-control">Date Of Birth</label></td>
-            <td><input class="form-control" type="date" [(ngModel)]="intern.dateOfBirth"></td>
+            <td><input class="form-control" placeholder="DOB" type="date" [(ngModel)]="intern.dateOfBirth" required ></td>
         </tr>
         <tr>
             <td><label class="form-control">Age</label></td>
-            <td><input class="form-control" type="number" [(ngModel)]="intern.age"></td>
+            <td><input class="form-control" type="number" [(ngModel)]="intern.age" placeholder="Age"></td>
         </tr>
         <tr>
             <td><button class="btn btn-success" (click)="addIntern()">Register</button></td>
             <td><button class="btn btn-danger">Cancel</button></td>
         </tr>
+        <tr>
+            <td colspan="2">Already have an Account</td>
+        </tr>
+        <tr>
+            <td colspan="2"><button class="btn btn-success" (click)="logIn()">Login</button></td>
+        </tr>
     </table>
 </div>
-<div>
-    {{intern| json}}
-</div>
+

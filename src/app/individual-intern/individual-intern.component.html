@@ -1,21 +1,15 @@
-<!-- <div class="card border-success mb-3" style="max-width: 18rem; margin: 5px; margin-top: 5px;">
-    <div class="card-header">Name: {{intern.name}}</div>
-    <div class="card-body text-success">
-      <h5 class="card-title">Date of Birth: {{intern.dateOfBirth}}</h5>
-      <h5 class="card-title">Age: {{intern.age}}</h5>
-      <h5 class="card-title">Gender: {{intern.gender}}</h5>
-      <h5 class="card-title">Phone Number:{{intern.phone}}</h5>
-      <h5 class="card-title">Email: {{intern.email}}</h5>
-    </div>
-</div> -->
+
 <div class="card" style="width: 25rem; margin: 7px; margin-top: 7px;">
     <div class="card-body">
-      <h5 class="card-title">Name: {{intern.name}}</h5>
-      <h5 class="card-title">Date of Birth: {{intern.dateOfBirth}}</h5>
-      <h5 class="card-title">Age: {{intern.age}}</h5>
-      <h5 class="card-title">Gender: {{intern.gender}}</h5>
-      <h5 class="card-title">Phone Number:{{intern.phone}}</h5>
-      <h5 class="card-title">Email: {{intern.email}}</h5>
-      <a class="btn btn-primary" (click)="changeStatus()">ChangeStatus</a>
+      <h5 class="card-title"><span>Name:</span> {{intern.name}}</h5>
+      <h5 class="card-title"><span>Date of Birth:</span> {{intern.dateOfBirth}}</h5>
+      <h5 class="card-title"><span>Age:</span> {{intern.age}}</h5>
+      <h5 class="card-title"><span>Gender:</span> {{intern.gender}}</h5>
+      <h5 class="card-title"><span>Phone Number:</span>{{intern.phone}}</h5>
+      <h5 class="card-title"><span>Email:</span> {{intern.email}}</h5>
+      <a class="btn btn-danger" *ngIf="toggleButton else goto" (click)="changeStatus()">Not Approved</a>
+      <ng-template #goto>
+        <button class="btn btn-success" disabled>Approved</button>
+      </ng-template>
     </div>
-  </div>
+</div>

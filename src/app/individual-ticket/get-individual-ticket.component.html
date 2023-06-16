@@ -1,0 +1,14 @@
+<div class="card border-info mb-3" style="width: 30rem; margin: 7px; margin-top: 7px;">
+    <div class="card-header"><span style="font-size: 20px;">Title:</span> {{ticket.title}}</div>
+    <div class="card-body">
+      <!-- <h5 class="card-title">Intern Name: {{ticket.internID}}</h5> -->
+      <h5 class="card-title"><span>Description:</span> {{ticket.description}}</h5>
+      <h5 class="card-title"><span>Issue Date:</span> {{ticket.issueDate}}</h5>
+      <h5 class="card-title"><span>Admin ID:</span> {{ticket.adminID}}</h5>
+      <h5 class="card-title"><span>Admin ID:</span> {{ticket.resolvedDate}}</h5>
+      <a class="btn btn-danger" *ngIf="toggleButton else goto" (click)="provideSolution()">Solution Need</a>
+      <ng-template #goto>
+        <button class="btn btn-success" disabled>Solution Provided</button>
+      </ng-template>
+    </div>
+  </div>

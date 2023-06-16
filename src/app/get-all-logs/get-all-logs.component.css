@@ -1,0 +1,22 @@
+.GetAll{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-nav{
+    width: 400px;
+    margin: auto;
+}
+.items{
+    font-size: 25px;
+    text-decoration: none;
+}
+.items:hover{
+    cursor: pointer;
+}
+.nav-item{
+    margin:10px 20px;
+}

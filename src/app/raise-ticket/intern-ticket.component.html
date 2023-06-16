@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid" id="nav-Bar">
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="items" >RaiseTicket</a>
+          </li>
+          <li class="nav-item">
+            <a class="items" (click)="details()">Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="items" (click)="logout()">LogOut</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<div style="margin-top: 50px;font-family: 'Courier New', Courier, monospace;">
+  <p>If you have any queries please raise ticket</p>
+</div>
+
+<div class="rows">
+  <form [formGroup]="myForm" (ngSubmit)="raiseTicket()">
+      <label>Title</label>
+      <input formControlName="heading" type="text" class="form-control">
+      <label>Description</label>
+      <textarea formControlName="description" class="form-control" rows="3" cols="20"></textarea>
+      <div class="row">
+        <button class="btn btn-success col-4">Create</button>
+        <button class="btn btn-danger col-4">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<div class="table">
+  <table>
+      <tr>
+          <td>Solution Status</td>
+          <td>Title</td>
+          <td>Description</td>
+          <td>Issued Date</td>
+      </tr>
+      <tr *ngFor="let t of tickets">
+          <td >
+            <button *ngIf="t.solutionStatus == true else goto" class="btn btn-success" disabled>SOlution Provided</button>
+            <ng-template #goto>
+              <button class="btn btn-danger" disabled>Solution Need</button>
+            </ng-template>
+          </td>
+          <td >{{t.title}}</td>
+          <td >{{t.description}}</td>
+          <td >{{t.issueDate}}</td>
+      </tr>
+  </table>
+</div>
